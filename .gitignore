@@ -24,9 +24,9 @@ coverage
 build/Release
 
 # Dependency directory
-node_modules
-node_modules/*
-.idea/*
+/node_modules
+/node_modules/*
+/.idea/*
 
 # Optional npm cache directory
 .npm

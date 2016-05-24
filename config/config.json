@@ -1,0 +1,8 @@
+{
+  "mongodbConfig":
+  {
+    "engine" : "mongodb",
+    "url" : "mongodb://frank_mongodbDemo:namei198@localhost:27017/mongodbDemo",
+    "options" : {}
+  }
+}

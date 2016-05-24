@@ -4,35 +4,47 @@
 'use strict';
 
 let mongoose = require('mongoose');
-let schema = mongoose.Schema;
+let Schema = mongoose.Schema;
 
 class testSchema
 {
     constructor()
     {
-        let child = new Schema({ name: String });
-        let schema = new Schema(
+        let child = new Schema(
             {
-                name: String,
-                age: Number,
-                children: [child]
+                friendName: String,
+                sex:
+                {
+                    type:String,
+                    default:'男'
+                },
+                time:{
+                    type:Date,
+                    default:Date.now()
+                }
             },
-            { _id: false, autoIndex: false }
-        );
+            { _id: false, autoIndex: false,versionKey:false });
+        let schema = new Schema
+            (
+                {
+                    name: String,
+                    age: Number,
+                    children: [child]
+                },{versionKey:false}
+            );
 
         schema.method.MethodTest = function()
         {
             console.info('this is a  methodTest');
-        }
+        };
 
         schema.static.staticTest = function()
         {
             return 'test';
-        }
+        };
 
-        
-
-
-        this.dbSchema = mongoose.model('Tree', schema);
+        this.dbSchema = mongoose.model('mongodbDemo', schema);
     }
 }
+
+module.exports = new testSchema();
